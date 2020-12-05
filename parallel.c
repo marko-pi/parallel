@@ -229,6 +229,7 @@ void writeparallel(unsigned char *datapos, int datanum)
    int i, j, k;
    uint32_t clk; /* bit for the clock line */
    int bpc; /* bits per cycle */
+   unsigned char datum; /* datum to be sent */
    struct timespec ctime;
    uint64_t ntime;
 
@@ -243,6 +244,7 @@ void writeparallel(unsigned char *datapos, int datanum)
 
    for (i=0; i<datanum; i++)
    {
+      datum = datapos[i];
       for (j=8/bpc; j>0; j--)
          {
          clr = 0;
@@ -251,9 +253,9 @@ void writeparallel(unsigned char *datapos, int datanum)
          if(curchip->data.protocol == 8080) clr = clk;
          for (k=0; k<bpc; k++)
          {
-            if ((datapos[i] & 0x80) > 0) set = set | (1 << curchip->pins[k]);
+            if ((datum & 0x80) > 0) set = set | (1 << curchip->pins[k]);
             else clr = clr | (1 << curchip->pins[k]);
-            datapos[i] = datapos[i] << 1;
+            datum = datum << 1;
          }
 
          WAIT();
