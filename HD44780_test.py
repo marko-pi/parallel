@@ -4,8 +4,8 @@ from HD44780 import HD44780
 
 # initialize the chips
 lcd=[]
-lcd.append(HD44780(40, 2, 5, 6, 13, 19, -1, -1, -1, -1, 16, 20, 12, 18, backlight=0, pwm=True))
-lcd.append(HD44780(40, 2, 5, 6, 13, 19, -1, -1, -1, -1, 16, 21, 12, 18, backlight=0, pwm=True))
+lcd.append(HD44780(40, 2, 5, 6, 13, 19, -1, -1, -1, -1, 16, 20, -1, 18, backlight=0, pwm=True))
+lcd.append(HD44780(40, 2, 5, 6, 13, 19, -1, -1, -1, -1, 16, 21, -1, 18, backlight=0, pwm=True))
 
 # times and euro characters (positions 0 and 1)
 customchars=[0x00110A040A110000,0x07081E081E080700]
