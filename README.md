@@ -54,3 +54,35 @@ Python test file for the Python Library (reqires RA6963.py)
 **Note:** If you don't want to control backlight from the program, set <code>bl=-1</code>.  If you are not interested in backlight PWM, set <code>pwm=False</code>.  If there are problems, try to make waiting times longer.
 
 [More information on RA6963](http://www.pinteric.com/displays.html#ra)
+
+## Examples of use: ST7565
+
+### ST7565.py
+
+Python library for ST7565 controller chip (requires parallel.so)
+
+### ST7565_test.py
+
+Python test file for the Python Library (reqires ST7565.py)
+
+[The result](https://youtu.be/Xsyyyuq_FGM)
+
+**Note:** If you don't want to control backlight from the program, set <code>bl=-1</code>.  If you are not interested in backlight PWM, set <code>pwm=False</code>.  If there are problems, try to make waiting times longer.
+
+[More information on ST7565](http://www.pinteric.com/displays.html#st1)
+
+## Examples of use: ST7920
+
+### ST7920.py
+
+Python library for ST7920 controller chip (requires parallel.so)
+
+### ST7920_test.py
+
+Python test file for the Python Library (reqires ST7920.py)
+
+[The result](https://youtu.be/Wm_1CEYBv30)
+
+**Note:** If you don't want to control backlight from the program, set <code>bl=-1</code>.  If you are not interested in backlight PWM, set <code>pwm=False</code>.  If there are problems, try to make waiting times longer.
+
+[More information on ST7920](http://www.pinteric.com/displays.html#st2)
