@@ -11,6 +11,8 @@
    GPIO communication based on Tiny GPIO Access on http://abyz.me.uk/rpi/pigpio/examples.html
 
    for more information see: https://github.com/marko-pi/parallel, http://www.pinteric.com/displays.html
+
+   Create shared object with: gcc -o parallel.so -shared -fPIC parallel.c
 */
 
 #include <stdio.h>
