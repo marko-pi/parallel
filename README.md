@@ -105,5 +105,5 @@ Python library for SSD1680 controller chip (requires spi.so)
 
 Python test file for the Python Library (reqires SSD1680.py)
 
-[The result](https://youtu.be/uTsA1mh45Cc)
+[The result](https://youtu.be/Mzw287wxoRg)
 
