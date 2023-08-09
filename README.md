@@ -1,6 +1,8 @@
 # parallel
 
-This repository is dedicated to fast parallel communications on Raspberry Pi.  The speed is essential when communicating with large liquid crystal displays, as a lot of data has to be transferred for a single full screen picture.
+This repository is dedicated to fast parallel communications on Raspberry Pi.  The speed is essential when communicating with large liquid crystal displays, as a lot of data has to be transferred for a single full screen picture.  Note that serial SPI communication is used for some devices that have SPI communication that is fast enough.
+
+No additional library or program is used - instead C code is written to use standard Linux driver for pin access and SPI communication.
 
 ## Main library
 
@@ -20,6 +22,14 @@ General purpose C library for parallel communications on Raspberry Pi
 [More information on parallel protocols](http://www.pinteric.com/displays.html#par)
 
 ### parallel.so
+
+C library compiled for use with Python
+
+### spi.c
+
+C library made to use standard Linux driver SPI communication
+
+### spi.so
 
 C library compiled for use with Python
 
@@ -59,7 +69,7 @@ Python test file for the Python Library (reqires RA6963.py)
 
 ### ST7565.py
 
-Python library for ST7565 controller chip (requires parallel.so)
+Python library for ST7565 controller chip (requires spi.so)
 
 ### ST7565_test.py
 
@@ -86,3 +96,14 @@ Python test file for the Python Library (reqires ST7920.py)
 **Note:** If you don't want to control backlight from the program, set <code>bl=-1</code>.  If you are not interested in backlight PWM, set <code>pwm=False</code>.  If there are problems, try to make waiting times longer.
 
 [More information on ST7920](http://www.pinteric.com/displays.html#st2)
+
+### SSD1680.py
+
+Python library for SSD1680 controller chip (requires spi.so)
+
+### SSD1680_test.py
+
+Python test file for the Python Library (reqires SSD1680.py)
+
+[The result](https://youtu.be/Mzw287wxoRg)
+
