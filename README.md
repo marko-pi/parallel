@@ -23,6 +23,14 @@ General purpose C library for parallel communications on Raspberry Pi
 
 C library compiled for use with Python
 
+### spi.c
+
+C library made to use standard Linux driver SPI communication
+
+### spi.so
+
+C library compiled for use with Python
+
 ## Examples of use: HD44780
 
 ### HD44780.py
@@ -59,7 +67,7 @@ Python test file for the Python Library (reqires RA6963.py)
 
 ### ST7565.py
 
-Python library for ST7565 controller chip (requires parallel.so)
+Python library for ST7565 controller chip (requires spi.so)
 
 ### ST7565_test.py
 
@@ -86,3 +94,14 @@ Python test file for the Python Library (reqires ST7920.py)
 **Note:** If you don't want to control backlight from the program, set <code>bl=-1</code>.  If you are not interested in backlight PWM, set <code>pwm=False</code>.  If there are problems, try to make waiting times longer.
 
 [More information on ST7920](http://www.pinteric.com/displays.html#st2)
+
+### SSD1680.py
+
+Python library for SSD1680 controller chip (requires spi.so)
+
+### SSD1680_test.py
+
+Python test file for the Python Library (reqires SSD1680.py)
+
+[The result](https://youtu.be/uTsA1mh45Cc)
+
