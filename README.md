@@ -1,6 +1,8 @@
 # parallel
 
-This repository is dedicated to fast parallel communications on Raspberry Pi.  The speed is essential when communicating with large liquid crystal displays, as a lot of data has to be transferred for a single full screen picture.
+This repository is dedicated to fast parallel communications on Raspberry Pi.  The speed is essential when communicating with large liquid crystal displays, as a lot of data has to be transferred for a single full screen picture.  Note that serial SPI communication is used for some devices that have SPI communication that is fast enough.
+
+No additional library or program is used - instead C code is written to use standard Linux driver for pin access and SPI communication.
 
 ## Main library
 
