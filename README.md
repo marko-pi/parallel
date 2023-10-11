@@ -97,6 +97,8 @@ Python test file for the Python Library (reqires ST7920.py)
 
 [More information on ST7920](http://www.pinteric.com/displays.html#st2)
 
+## Examples of use: SSD1680
+
 ### SSD1680.py
 
 Python library for SSD1680 controller chip (requires spi.so)
@@ -107,3 +109,4 @@ Python test file for the Python Library (reqires SSD1680.py)
 
 [The result](https://youtu.be/Mzw287wxoRg)
 
+[More information on SSD1680](http://www.pinteric.com/displays.html#ssd)
