@@ -6,7 +6,6 @@
 */
 
 #include <stdio.h>
-#include <string.h>
 #include <unistd.h>
 #include <stdint.h>
 #include <fcntl.h>
@@ -57,15 +56,6 @@ static volatile uint32_t  *gpioReg = MAP_FAILED;
 
 int fd_spi;
 struct spi_ioc_transfer spi;
-
-struct chip
-{
-   unsigned sda;
-   unsigned scl;
-   unsigned ldac;
-   unsigned address;
-   unsigned bus;
-};
 
 /* communication initialised */
 bool init_gpio=false, init_spi=false;
