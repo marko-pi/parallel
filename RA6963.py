@@ -378,6 +378,7 @@ class RA6963(object):
         return(temp[0])
 
     # read a datum, increment pointer position
+    # WARNING! First byte read after a command is a dummy read and has to be discarded
     def readincrement(self):
         temp = (c_uint8 *1) ()
         writecommand(self._dev, LCD_DATAREADINCREMENT)
