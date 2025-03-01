@@ -219,7 +219,7 @@ class ST7920(object):
             for i in range(30):
                 writecommand(self._dev, LCD_FUNCTIONSET & ~LCD_8BIT)
                 time.sleep(0.001)
-            
+
         self.clearchar()
         self.displayon(True);
 
@@ -313,6 +313,7 @@ class ST7920(object):
             # put the text to line buffer
             temp = numpy.empty(2*len(lines[i]), dtype = 'uint8')
             for j in range(len(lines[i])):
+                # each 16x16 px character has two bytes, the first byte for latin characters is 0xA3
                 temp[2*j] = 0xA3
                 temp[2*j+1] = ord(lines[i][j])
             # calculate front and end spaces
@@ -362,11 +363,11 @@ class ST7920(object):
             # put the text to buffer
             if add>=0:
                 self.bufferc[i,0:addl].fill(0x20)
-                numpy.copyto(self.bufferc[i,addl:16-addr],numpy.frombuffer(lines[i], dtype=numpy.uint8))
+                numpy.copyto(self.bufferc[i,addl:16-addr],numpy.frombuffer(lines[i].encode('utf-8'), dtype=numpy.uint8))
                 self.bufferc[i,16-addr:16].fill(0x20)
             else:
                 print ("Overflow text: " + lines[i])
-                numpy.copyto(self.bufferc[i],numpy.frombuffer(lines[i][-addr:16-addr], dtype=numpy.uint8))
+                numpy.copyto(self.bufferc[i],numpy.frombuffer(lines[i][-addr:16-addr].encode('utf-8'), dtype=numpy.uint8))
         # print buffer
         for i in range(len(lines)):
             self.setcharposition(0, first+i)

@@ -18,7 +18,7 @@ lcd[0].setbacklight(0.5)
 
 # write the first text
 lcd[0].set_cursor(0,0)
-lcd[0].text(b'             40 '+chr(0)+' 4 DISPLAY             ')
+lcd[0].text(bytes('             40 '+chr(0)+' 4 DISPLAY             ','utf-8'))
 lcd[0].set_cursor(0,1)
 lcd[0].text(b'              HD44780 CHIP              ')
 lcd[1].set_cursor(0,0)

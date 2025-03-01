@@ -182,7 +182,7 @@ class RA6963(object):
         self._modeset = 0
 
         # manual: tsetup, tclock, tread, tproc, thold = 20, 80, 150, 80, 50
-        self._dev = initialise(d7, d6, d5, d4, d3, d2, d1, d0, cd, wr, rd, 8080, 20, 2000, 300, 1000, 2000)
+        self._dev = initialise(d7, d6, d5, d4, d3, d2, d1, d0, cd, wr, rd, 8080, 20, 2500, 300, 1500, 2000)
 
         # backlight power setup
         if (bl>=0 and bl<=27):
@@ -485,10 +485,10 @@ class RA6963(object):
 
     # write a full screen ASCII text, parameter: pointer
     def writetext(self, text):
-        temp=bytearray(text.replace("\n", ""))
+        temp=bytearray(text.replace("\n", ""), 'utf-8')
         for i in range(len(temp)):
             temp[i] = temp[i] - 32
-        text = str(temp)
+        text = bytes(temp)
         self.texthome()
         writecommand(self._dev, LCD_SETDATAAUTOWRITE)
         writedata(self._dev, text, len(text))

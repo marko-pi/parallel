@@ -66,7 +66,7 @@ for i in range (11):
 # make subtitle bold and blinking (7th row, 9th column, 14 characters)
 # create contiguous data using string method and send everything in one go 
 ra.setaddress(ra.graphicaddress+6*30+8)
-temp = chr(ra.bold | ra.blink)*14
+temp = bytes([ra.bold | ra.blink]*14)
 ra.writedata(temp, 14)
 
 time.sleep(8)
@@ -97,7 +97,7 @@ for i in range(4):
 # clear memory after the picture
 # create contiguous data of zeros using string method and send everything in one go 
 ra.setaddress(ra.graphicaddress + 240*128//8)
-temp = chr(0)*(240*128//8)
+temp = bytes([0]*(240*128//8))
 ra.writedata(temp, 240*128//8)
 
 # slowly move picture from the screen, by moving graphics area into cleared memory
