@@ -15,23 +15,19 @@ General purpose C library for parallel communications on Raspberry Pi
    - supports objective oriented programming, initialisation returns the pointer to chip instance
    - all RPi data lines by default in read/input mode in order to avoid possible conflict and destruction of GPIO pins
 
+Version 2 also offers additional improvements:
+   - More precise timing;
+   - Code streamlined by consolidating duplicates.
+
 ![Times](/times.png)
 
 \* on writing between two half-bytes (4 bits protocol): *t*<sub>clock</sub>; on writing after full byte: *t*<sub>proc</sub>; on reading between two half-bytes (4 bits protocol): larger of *t*<sub>clock</sub> and *t*<sub>hold</sub>; on reading after full byte: larger of *t*<sub>proc</sub> and *t*<sub>hold</sub>.
 
 [More information on parallel protocols](http://www.pinteric.com/displays.html#par)
 
-### parallel.so
-
-C library compiled for use with Python
-
 ### spi.c
 
 C library made to use standard Linux driver SPI communication
-
-### spi.so
-
-C library compiled for use with Python
 
 ## Examples of use: HD44780
 
