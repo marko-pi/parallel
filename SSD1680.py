@@ -14,8 +14,15 @@
 import os, numpy, time
 from ctypes import cdll, c_int, c_uint, c_uint32, c_void_p
 
-###### Wrapping C library ######
-spi = cdll.LoadLibrary("./spi.so")
+##### WRAPPING C LIBRARY (local directory or shared) #####
+try:
+    parallel = cdll.LoadLibrary("./spi.so")
+except OSError:
+    try:
+        parallel = cdll.LoadLibrary("libspi.so")
+    except OSError:
+        print('Library \'spi\' not available.  Execute \'make\' or \'make install\'.')
+        exit()
 
 """
 gpioInitialise()
@@ -248,7 +255,7 @@ class SSD1680(object):
         self.command(0x45,[0x00,0x00,0x27,0x01]) # Y address range
         self.command(0x4E,[0x00])                # X address start
         self.command(0x4F,[0x00,0x00])           # Y address start
-        
+
     def command(self, nam, dat=[]):
         gpioWrite(self._dc,0)
         nam=numpy.array([nam], dtype = 'uint8')

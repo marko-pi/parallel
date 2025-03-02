@@ -24,9 +24,15 @@
 import os, numpy, time
 from ctypes import cdll, c_ubyte, c_void_p, c_int, c_uint, c_uint8, c_uint16, c_uint64
 
-##### WRAPPING C LIBRARY #####
-
-parallel = cdll.LoadLibrary("./parallel.so")
+##### WRAPPING C LIBRARY (local directory or shared) #####
+try:
+    parallel = cdll.LoadLibrary("./parallel.so")
+except OSError:
+    try:
+        parallel = cdll.LoadLibrary("libparallel.so")
+    except OSError:
+        print('Library \'parallel\' not available.  Execute \'make\' or \'make install\'.')
+        exit()
 
 """
 deinitialise(object)

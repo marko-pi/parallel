@@ -23,8 +23,15 @@
 import os, numpy, time
 from ctypes import cdll, c_int, c_uint, c_uint32, c_ubyte, c_void_p
 
-###### Wrapping C library ######
-spi = cdll.LoadLibrary("./spi.so")
+##### WRAPPING C LIBRARY (local directory or shared) #####
+try:
+    parallel = cdll.LoadLibrary("./spi.so")
+except OSError:
+    try:
+        parallel = cdll.LoadLibrary("libspi.so")
+    except OSError:
+        print('Library \'spi\' not available.  Execute \'make\' or \'make install\'.')
+        exit()
 
 """
 gpioInitialise()

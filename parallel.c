@@ -15,7 +15,8 @@
         - More precise timing;
         - Code streamlined by consolidating duplicates.
 
-    Create shared object with: gcc -o parallel.so -shared -fPIC parallel.c
+    To create C library execute 'make' (library in local directory) or 'make install' (shared library).
+    To remove C library execute 'make clear' (library in local directory) or 'make uninstall' (shared library).
 */
 
 #include <stdio.h>

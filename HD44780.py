@@ -24,9 +24,15 @@
 import os, time
 from ctypes import cdll, c_ubyte, c_void_p, c_int, c_uint, c_uint8, c_uint64
 
-##### WRAPPING C LIBRARY #####
-
-parallel = cdll.LoadLibrary("./parallel.so")
+##### WRAPPING C LIBRARY (local directory or shared) #####
+try:
+    parallel = cdll.LoadLibrary("./parallel.so")
+except OSError:
+    try:
+        parallel = cdll.LoadLibrary("libparallel.so")
+    except OSError:
+        print('Library \'parallel\' not available.  Execute \'make\' or \'make install\'.')
+        exit()
 
 """
 deinitialise(object)
@@ -157,7 +163,7 @@ LCD_ROW_OFFSETS         = (0x00, 0x40, 0x20, 0x60)
 #     backlight power GPIO pin PWM endabled
 # GPIO pin value is out of range (0-27) -> option not used
 class HD44780(object):
-    def __init__(self, cols, rows, d7, d6, d5, d4, d3, d2, d1, d0, rs, en, rw=-1, bl=-1,  
+    def __init__(self, cols, rows, d7, d6, d5, d4, d3, d2, d1, d0, rs, en, rw=-1, bl=-1,
                     backlight=1.0, pwm=False):
         self._cols = cols
         self._rows = rows

@@ -2,7 +2,7 @@
 
 This repository is dedicated to fast parallel communications on Raspberry Pi.  The speed is essential when communicating with large liquid crystal displays, as a lot of data has to be transferred for a single full screen picture.  Note that serial SPI communication is used for some devices that have SPI communication that is fast enough.
 
-No additional library or program is used - instead C code is written to use standard Linux driver for pin access and SPI communication.
+No additional library or program is used - instead C code is written to use standard Linux driver for pin access and SPI communication.  To create C library execute `make` (library in local directory) or `make install` (shared library).
 
 ## Main library
 
@@ -33,7 +33,7 @@ C library made to use standard Linux driver SPI communication
 
 ### HD44780.py
 
-Python library for HD44780 controller chip (requires parallel.so)
+Python library for HD44780 controller chip (requires parallel C library)
 
 ### HD44780_test.py
 
@@ -49,7 +49,7 @@ Python test file for the Python Library (reqires HD44780.py)
 
 ### RA6963.py
 
-Python library for RA6963 controller chip (requires parallel.so)
+Python library for RA6963 controller chip (requires parallel C library)
 
 ### RA6963_test.py
 
@@ -65,7 +65,7 @@ Python test file for the Python Library (reqires RA6963.py)
 
 ### ST7565.py
 
-Python library for ST7565 controller chip (requires spi.so)
+Python library for ST7565 controller chip (requires spi C library)
 
 ### ST7565_test.py
 
@@ -81,7 +81,7 @@ Python test file for the Python Library (reqires ST7565.py)
 
 ### ST7920.py
 
-Python library for ST7920 controller chip (requires parallel.so)
+Python library for ST7920 controller chip (requires parallel C library)
 
 ### ST7920_test.py
 
@@ -97,7 +97,7 @@ Python test file for the Python Library (reqires ST7920.py)
 
 ### SSD1680.py
 
-Python library for SSD1680 controller chip (requires spi.so)
+Python library for SSD1680 controller chip (requires spi C library)
 
 ### SSD1680_test.py
 
